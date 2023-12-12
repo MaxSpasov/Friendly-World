@@ -9,25 +9,25 @@ const photoSchema = new mongoose.Schema({
         type: String,
         required: [true, 'ImageUrl is required'],
     },
-    price: {
+    age: {
         type: Number,
-        required: [true, 'Price is required'],
+        required: [true, 'Age is required'],
     },
     description: {
         type: String,
         required: [true, 'Description is required'],
     },
-    genre: {
+    kind: {
         type: String,
-        required: [true, 'Genre is required'],
+        required: [true, 'Kind is required'],
     },
-    platform: {
+    location: {
         type: String,
-        required: [true, 'Platform is required'],
+        required: [true, 'Location is required'],
     },
-    boughtBy: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
+    needsOf: {
+        type: String,
+        required: [true, 'Needs are required']
     },
     owner: {
         type: mongoose.Types.ObjectId,
