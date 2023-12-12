@@ -27,10 +27,10 @@ router.get('/register', (req, res,) => {
 });
 
 router.post('/register', async (req, res, next) => {
-    const { username, email, password, repeatPassword } = req.body;
+    const { email, password, repeatPassword } = req.body;
 
     try {
-        const token = await userManager.register({ username, email, password, repeatPassword });
+        const token = await userManager.register({ email, password, repeatPassword });
 
         res.cookie(TOKEN_KEY, token);
         res.redirect('/');

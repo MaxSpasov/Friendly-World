@@ -23,9 +23,9 @@ exports.login = async (email, password) => {
 };
 
 exports.register = async (userData) => {
-    const user = await User.findOne({ username: userData.username });
+    const user = await User.findOne({ email: userData.email });
     if (user) {
-        throw new Error('Username already exists');
+        throw new Error('Email already exists');
     }
 
     const createdUser = await User.create(userData);
@@ -38,7 +38,6 @@ exports.register = async (userData) => {
 async function generateToken(user) {
     const payload = {
         _id: user._id,
-        username: user.username,
         email: user.email,
     };
 
